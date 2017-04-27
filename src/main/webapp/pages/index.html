@@ -13,19 +13,56 @@
         <div class="cover">
             <div class="container" ng-controller="WeatherController">
                 <div class="input-group">
-                    <input class="form-control" type="text" id="city-input" placeholder="Enter the city name...">
+                    <input class="form-control" type="text" id="city-input" placeholder="Enter the city name..."
+                           ng-model="cityName">
                     <span class="input-group-btn">
-                        <input class="btn btn-info" type="button" ng-click="getWeather('Kharkiv')" value="Get">
+                        <input class="btn btn-info" type="button" ng-click="getWeather(cityName)" value="Get">
                     </span>
                 </div>
-                <!--<div class="row">-->
-                <!--<div class="col-md-5">-->
+                <div class="row" ng-show="showDetails" style="margin-top: 20px;">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12" style="text-align: left;">
+                                <h2>Weather in {{cityInfo.display_location.full}}</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4" style="padding-top: 25px;">
+                                <img ng-src="{{cityInfo.icon_url}}"/>
+                                {{cityInfo.weather}}
+                            </div>
+                            <div class="col-md-8" style="text-align: left;">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>{{cityInfo.temperature_string}}</h3>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h5>Feels like {{cityInfo.feelslike_string}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                <!--</div>-->
-                <!--<div class="col-md-5">-->
+                        <div class="row">
+                            <p>{{cityInfo.observation_time}}</p>
+                        </div>
 
-                <!--</div>-->
-                <!--</div>-->
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table table-striped table-bordered">
+                            <tr>
+                                <td>Wind</td>
+                                <td>{{cityInfo.wind_string}}</td>
+                            </tr>
+                            <tr>
+                                <td>Humidity</td>
+                                <td>{{cityInfo.relative_humidity}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
