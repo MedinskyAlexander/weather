@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -17,6 +17,7 @@
         <retrofit.jackson.converter.version>2.1.0</retrofit.jackson.converter.version>
         <!--<slf4j.version>1.7.21</slf4j.version>-->
         <angularjs.version>1.5.7</angularjs.version>
+        <bootstrap.version>3.3.7</bootstrap.version>
     </properties>
 
     <dependencies>
@@ -95,6 +96,12 @@
             <groupId>org.webjars</groupId>
             <artifactId>angularjs</artifactId>
             <version>${angularjs.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>${bootstrap.version}</version>
         </dependency>
 
     </dependencies>

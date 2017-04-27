@@ -2,13 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Weather Viewer</title>
+    <link href="webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="css/weather.css" rel="stylesheet" type="text/css"/>
 </head>
 <body ng-app="WeatherViewer">
-<h1>ATATA</h1>
 
-<div ng-controller="WeatherController">
-    <input type="button" ng-click="getWeather('Kharkiv')">
+<div class="site-wrapper">
+    <div class="site-wrapper-inner">
+        <div class="cover">
+            <div class="container" ng-controller="WeatherController">
+                <div class="input-group">
+                    <input class="form-control" type="text" id="city-input" placeholder="Enter the city name...">
+                    <span class="input-group-btn">
+                        <input class="btn btn-info" type="button" ng-click="getWeather('Kharkiv')" value="Get">
+                    </span>
+                </div>
+                <!--<div class="row">-->
+                <!--<div class="col-md-5">-->
+
+                <!--</div>-->
+                <!--<div class="col-md-5">-->
+
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
 </div>
 
 <script src="webjars/angularjs/1.5.7/angular.min.js"></script>
