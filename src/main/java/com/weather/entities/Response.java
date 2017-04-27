@@ -1,5 +1,7 @@
 package com.weather.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * Author: a.medinsky
  * Created by: ModelGenerator on 4/27/2017
@@ -25,6 +27,7 @@ public class Response {
         this.termsofService = termsofService;
     }
 
+    @JsonIgnore
     public Features getFeatures() {
         return features;
     }

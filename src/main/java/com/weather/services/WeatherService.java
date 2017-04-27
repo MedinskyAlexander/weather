@@ -24,6 +24,7 @@ public class WeatherService {
             result = response.body();
         } catch (IOException e) {
             //todo: add logging
+            int d = 0;
         }
         return result;
     }
