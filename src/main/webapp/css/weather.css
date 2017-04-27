@@ -16,7 +16,7 @@ body {
 
 .site-wrapper-inner {
     display: table-cell;
-    vertical-align: middle;
+    padding-top: 80px;
 }
 
 .cover {
@@ -26,4 +26,12 @@ body {
 .cover .btn-lg {
     padding: .75rem 1.25rem;
     font-weight: bold;
+}
+
+.top-buffer-20 {
+    margin-top: 20px;
+}
+
+.col-with-icon {
+    padding-top: 10px;
 }
