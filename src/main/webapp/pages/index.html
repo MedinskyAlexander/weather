@@ -92,23 +92,34 @@
                 </div>
 
                 <div class="row top-buffer-20" ng-show="showCitiesSelection">
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle"
-                                type="button"
-                                id="dropdownMenuButton"
-                                data-toggle="dropdown"
-                                aria-haspopup="true"
-                                aria-expanded="true">
-                            Select city by country
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item"
-                                ng-repeat="city in cities"
-                                ng-click="getWeatherByCountry(city.country, city.name)">
-                                {{city.name}}/{{city.country_name}}
-                            </li>
-                        </ul>
+                    <div class="col-md-9">
+                        <div class="alert alert-info">
+                            <strong>Oops.</strong> We have found few cities with name '{{cityName}}'.
+                            Could you select needed?
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle dropdown-cities-toggle"
+                                    type="button"
+                                    id="dropdownMenuButton"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="true">
+                                Select city by country
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item"
+                                    ng-repeat="city in cities"
+                                    ng-click="getWeatherByCountry(city.country, city.name)">
+                                    <a href="#">
+                                        {{city.name}}/{{city.country_name}}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
             </div>

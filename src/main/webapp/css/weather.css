@@ -42,3 +42,7 @@ body {
     text-align: center;
     transform: translate(-50%, 0);
 }
+
+.dropdown-cities-toggle {
+    min-height: 52px;
+}
