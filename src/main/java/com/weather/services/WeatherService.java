@@ -32,6 +32,18 @@ public class WeatherService {
         return result;
     }
 
+    public WeatherResponse find(String countryName, String cityName) {
+        WeatherResponse result = null;
+        Call<WeatherResponse> call = weatherClientAPI.getCityWeather(countryName, cityName);
+        try {
+            Response<WeatherResponse> response = call.execute();
+            result = response.body();
+        } catch (IOException e) {
+            log.error("Could not obtain weather info for city '{}' / '{}'", cityName, countryName, e);
+        }
+        return result;
+    }
+
     public WeatherResponse find(String countryName, String stateName, String cityName) {
         WeatherResponse result = null;
         Call<WeatherResponse> call = weatherClientAPI.getCityWeather(countryName, stateName, cityName);
@@ -39,7 +51,7 @@ public class WeatherService {
             Response<WeatherResponse> response = call.execute();
             result = response.body();
         } catch (IOException e) {
-            log.error("Could not obtain weather info for city '{}' / '{}'", cityName, countryName, e);
+            log.error("Could not obtain weather info for city '{}' / '{}' / {}", cityName, countryName, stateName, e);
         }
         return result;
     }

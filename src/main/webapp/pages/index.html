@@ -14,9 +14,9 @@
             <div class="container" ng-controller="WeatherController">
                 <div class="input-group">
                     <input class="form-control" type="text" id="city-input" placeholder="Enter the city name..."
-                           ng-model="cityName">
+                           ng-model="city.name">
                     <span class="input-group-btn">
-                        <input class="btn btn-info" type="button" ng-click="getWeather(cityName)" value="Get">
+                        <input class="btn btn-info" type="button" ng-click="getWeather(city.name);" value="Get">
                     </span>
                 </div>
                 <div class="row top-buffer-20" ng-show="showDetails">
@@ -109,11 +109,19 @@
                                 Select city by country
                                 <span class="caret"></span>
                             </button>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" ng-if="city.byState == false">
                                 <li class="dropdown-item"
-                                    ng-repeat="city in cities"
-                                    ng-click="getWeatherByCountry(city.country, city.state, city.name)">
-                                    <a href="#">
+                                    ng-repeat="city in cities">
+                                    <a href="#"
+                                       ng-click="city.byState = true; getWeather(city.name, city.country_iso3166)">
+                                        {{city.name}}/{{city.country_name}}
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="dropdown-menu" ng-if="city.byState == true">
+                                <li class="dropdown-item"
+                                    ng-repeat="city in cities">
+                                    <a href="#" ng-click="getWeather(city.name, city.country_iso3166, city.state)">
                                         {{city.name}}/{{city.country_name}}/{{city.state}}
                                     </a>
                                 </li>

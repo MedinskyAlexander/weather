@@ -5,9 +5,18 @@ angular.module('WeatherViewer').controller('WeatherController', ['$scope', 'Weat
     $scope.cities = [];
     $scope.cityInfo = {};
     $scope.showDetails = false;
+    $scope.city = {
+        name: '',
+        byState: false
+    };
 
-    $scope.getWeather = function (city) {
-        WeatherService.getWeather(city).then(function (data) {
+    $scope.getWeather = function (city, country, state) {
+        $scope.city.name = country == undefined ? '' : country + '/';
+        $scope.city.name += state == undefined ? '' : state + '/';
+        $scope.city.name += city == undefined ? '' : city;
+        var url = 'weather/' + $scope.city.name;
+
+        WeatherService.getWeather(url).then(function (data) {
             if (data) {
                 $scope.cityInfo = {
                     current_observation: data.current_observation,
@@ -24,25 +33,5 @@ angular.module('WeatherViewer').controller('WeatherController', ['$scope', 'Weat
             }
         });
 //        todo: incorrect city name handling
-    };
-
-    $scope.getWeatherByCountry = function (country, state, city) {
-        $scope.cityName = country + '/' + state + '/' + city;
-        WeatherService.getWeatherByCountry(country, state, city).then(function (data) {
-            if (data) {
-                $scope.cityInfo = {
-                    current_observation: data.current_observation,
-                    sun_phase: data.sun_phase
-                };
-                $scope.cities = data.response.results;
-                if ($scope.cities) {
-                    $scope.showDetails = $scope.cities.length == 0;
-                    $scope.showCitiesSelection = $scope.cities.length > 0;
-                } else {
-                    $scope.showDetails = true;
-                    $scope.showCitiesSelection = false;
-                }
-            }
-        });
     };
 }]);
