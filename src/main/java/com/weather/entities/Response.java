@@ -14,6 +14,7 @@ public class Response {
     private String termsofService;
     private Features features;
     private List<ResultsItem> results;
+    private com.weather.entities.Error error;
 
     public String getVersion() {
         return version;
@@ -49,6 +50,15 @@ public class Response {
         this.results = results;
     }
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public Error getError() {
+        return error;
+    }
+
+    public void setError(Error error) {
+        this.error = error;
+    }
+
     @Override
     public String toString() {
         return "Response{" +
@@ -56,6 +66,7 @@ public class Response {
                 ", termsofService='" + termsofService + '\'' +
                 ", features=" + features +
                 ", results=" + results +
+                ", error=" + error +
                 '}';
     }
 }

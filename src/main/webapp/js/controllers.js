@@ -5,6 +5,8 @@ angular.module('WeatherViewer').controller('WeatherController', ['$scope', 'Weat
     $scope.cities = [];
     $scope.cityInfo = {};
     $scope.showDetails = false;
+    $scope.showCitiesSelection = false;
+    $scope.showErrorMsg = false;
     $scope.city = {
         name: '',
         byState: false
@@ -23,12 +25,21 @@ angular.module('WeatherViewer').controller('WeatherController', ['$scope', 'Weat
                     sun_phase: data.sun_phase
                 };
                 $scope.cities = data.response.results;
-                if ($scope.cities) {
-                    $scope.showDetails = $scope.cities.length == 0;
-                    $scope.showCitiesSelection = $scope.cities.length > 0;
-                } else {
-                    $scope.showDetails = true;
+                $scope.error = data.response.error;
+
+                if ($scope.error) {
+                    $scope.showErrorMsg = true;
+                    $scope.showDetails = false;
                     $scope.showCitiesSelection = false;
+                } else {
+                    $scope.showErrorMsg = false;
+                    if ($scope.cities) {
+                        $scope.showDetails = $scope.cities.length == 0;
+                        $scope.showCitiesSelection = $scope.cities.length > 0;
+                    } else {
+                        $scope.showDetails = true;
+                        $scope.showCitiesSelection = false;
+                    }
                 }
             }
         });

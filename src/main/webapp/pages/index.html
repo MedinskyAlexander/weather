@@ -130,6 +130,16 @@
 
                     </div>
                 </div>
+
+                <div class="row top-buffer-20" ng-show="showErrorMsg">
+                    <div class="col-md-12">
+                        <div class="alert alert-danger">
+                            <p><strong>We have some problems!</strong></p>
+
+                            <p><strong>Error message:</strong>{{error.description}}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
