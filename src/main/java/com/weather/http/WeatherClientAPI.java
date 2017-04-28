@@ -11,7 +11,9 @@ public interface WeatherClientAPI {
     @GET("conditions/astronomy/q/{cityName}.json")
     Call<WeatherResponse> getCityWeather(@Path("cityName") String cityName);
 
-    @GET("conditions/astronomy/q/{countryName}/{cityName}.json")
-    Call<WeatherResponse> getCityWeather(@Path("countryName") String countryName, @Path("cityName") String cityName);
+    @GET("conditions/astronomy/q/{countryName}/{stateName}/{cityName}.json")
+    Call<WeatherResponse> getCityWeather(@Path("countryName") String countryName,
+                                         @Path("stateName") String stateName,
+                                         @Path("cityName") String cityName);
 
 }

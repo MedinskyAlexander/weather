@@ -20,9 +20,9 @@ angular.module('WeatherViewer').factory('WeatherService', ['$http', '$q', functi
         return def.promise;
     }
 
-    function getWeatherByCountry(country, city) {
+    function getWeatherByCountry(country, state, city) {
         var def = $q.defer();
-        $http.get('weather/' + country + '/' + city)
+        $http.get('weather/' + country + '/' + state + '/' + city)
             .success(function (data) {
                 console.log(data);
                 def.resolve(data);

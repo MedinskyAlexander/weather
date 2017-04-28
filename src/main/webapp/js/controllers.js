@@ -26,9 +26,9 @@ angular.module('WeatherViewer').controller('WeatherController', ['$scope', 'Weat
 //        todo: incorrect city name handling
     };
 
-    $scope.getWeatherByCountry = function (country, city) {
-        $scope.cityName = country + '/' + city;
-        WeatherService.getWeatherByCountry(country, city).then(function (data) {
+    $scope.getWeatherByCountry = function (country, state, city) {
+        $scope.cityName = country + '/' + state + '/' + city;
+        WeatherService.getWeatherByCountry(country, state, city).then(function (data) {
             if (data) {
                 $scope.cityInfo = {
                     current_observation: data.current_observation,

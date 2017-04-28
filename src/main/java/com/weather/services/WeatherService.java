@@ -32,9 +32,9 @@ public class WeatherService {
         return result;
     }
 
-    public WeatherResponse find(String countryName, String cityName) {
+    public WeatherResponse find(String countryName, String stateName, String cityName) {
         WeatherResponse result = null;
-        Call<WeatherResponse> call = weatherClientAPI.getCityWeather(countryName, cityName);
+        Call<WeatherResponse> call = weatherClientAPI.getCityWeather(countryName, stateName, cityName);
         try {
             Response<WeatherResponse> response = call.execute();
             result = response.body();
