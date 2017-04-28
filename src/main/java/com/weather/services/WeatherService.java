@@ -2,6 +2,8 @@ package com.weather.services;
 
 import com.weather.entities.WeatherResponse;
 import com.weather.http.WeatherClientAPI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import retrofit2.Call;
@@ -13,6 +15,8 @@ import java.io.IOException;
 @Service
 public class WeatherService {
 
+    private static final Logger log = LoggerFactory.getLogger(WeatherService.class);
+
     @Autowired
     private WeatherClientAPI weatherClientAPI;
 
@@ -23,7 +27,7 @@ public class WeatherService {
             Response<WeatherResponse> response = call.execute();
             result = response.body();
         } catch (IOException e) {
-            //todo: add logging
+            log.error("Could not obtain weather info for city '{}'", cityName, e);
         }
         return result;
     }
@@ -35,7 +39,7 @@ public class WeatherService {
             Response<WeatherResponse> response = call.execute();
             result = response.body();
         } catch (IOException e) {
-            //todo: add logging
+            log.error("Could not obtain weather info for city '{}' / '{}'", cityName, countryName, e);
         }
         return result;
     }

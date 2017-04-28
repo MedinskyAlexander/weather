@@ -15,7 +15,7 @@
         <ok.http.version>3.4.1</ok.http.version>
         <retrofit.version>2.1.0</retrofit.version>
         <retrofit.jackson.converter.version>2.1.0</retrofit.jackson.converter.version>
-        <!--<slf4j.version>1.7.21</slf4j.version>-->
+        <slf4j.version>1.7.21</slf4j.version>
         <angularjs.version>1.5.7</angularjs.version>
         <bootstrap.version>3.3.7</bootstrap.version>
         <jquery.version>3.2.0</jquery.version>
@@ -53,18 +53,18 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--&lt;!&ndash; Logging &ndash;&gt;-->
+        <!-- Logging -->
 
-        <!--<dependency>-->
-        <!--<groupId>org.slf4j</groupId>-->
-        <!--<artifactId>slf4j-api</artifactId>-->
-        <!--<version>${slf4j.version}</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-        <!--<groupId>org.slf4j</groupId>-->
-        <!--<artifactId>slf4j-log4j12</artifactId>-->
-        <!--<version>${slf4j.version}</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
 
         <!--Retrofit-->
         <dependency>
