@@ -113,7 +113,7 @@
                                 <li class="dropdown-item"
                                     ng-repeat="city in cities">
                                     <a href="#"
-                                       ng-click="city.byState = true; getWeather(city.name, city.country_iso3166)">
+                                       ng-click="setByState(true); getWeather(city.name, city.country_iso3166);">
                                         {{city.name}}/{{city.country_name}}
                                     </a>
                                 </li>

@@ -43,6 +43,9 @@ angular.module('WeatherViewer').controller('WeatherController', ['$scope', 'Weat
                 }
             }
         });
-//        todo: incorrect city name handling
+    };
+
+    $scope.setByState = function (val) {
+        $scope.city.byState = val;
     };
 }]);
