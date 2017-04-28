@@ -1,9 +1,12 @@
 package com.weather.entities;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.weather.entities.astronomy.MoonPhase;
 import com.weather.entities.astronomy.SunPhase;
+
+import static com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 /**
  * Author: a.medinsky
@@ -17,6 +20,7 @@ public class WeatherResponse {
     private MoonPhase moonPhase;
     private SunPhase sunPhase;
 
+    @JsonInclude(Include.NON_NULL)
     public Response getResponse() {
         return response;
     }
@@ -25,6 +29,7 @@ public class WeatherResponse {
         this.response = response;
     }
 
+    @JsonInclude(Include.NON_NULL)
     public CurrentObservation getCurrentObservation() {
         return currentObservation;
     }
@@ -33,6 +38,7 @@ public class WeatherResponse {
         this.currentObservation = currentObservation;
     }
 
+    @JsonInclude(Include.NON_NULL)
     public MoonPhase getMoonPhase() {
         return moonPhase;
     }
@@ -41,6 +47,7 @@ public class WeatherResponse {
         this.moonPhase = moonPhase;
     }
 
+    @JsonInclude(Include.NON_NULL)
     public SunPhase getSunPhase() {
         return sunPhase;
     }

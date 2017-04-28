@@ -19,4 +19,9 @@ public class WeatherController {
         return weatherService.find(cityName);
     }
 
+    @RequestMapping("/{countryName}/{cityName}")
+    public WeatherResponse find(@PathVariable("countryName") String countryName, @PathVariable("cityName") String cityName) {
+        return weatherService.find(countryName, cityName);
+    }
+
 }

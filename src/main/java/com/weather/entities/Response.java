@@ -1,6 +1,9 @@
 package com.weather.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
+import java.util.List;
 
 /**
  * Author: a.medinsky
@@ -10,6 +13,7 @@ public class Response {
     private String version;
     private String termsofService;
     private Features features;
+    private List<ResultsItem> results;
 
     public String getVersion() {
         return version;
@@ -34,5 +38,24 @@ public class Response {
 
     public void setFeatures(Features features) {
         this.features = features;
+    }
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public List<ResultsItem> getResults() {
+        return results;
+    }
+
+    public void setResults(List<ResultsItem> results) {
+        this.results = results;
+    }
+
+    @Override
+    public String toString() {
+        return "Response{" +
+                "version='" + version + '\'' +
+                ", termsofService='" + termsofService + '\'' +
+                ", features=" + features +
+                ", results=" + results +
+                '}';
     }
 }

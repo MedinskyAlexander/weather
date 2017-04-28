@@ -24,8 +24,20 @@ public class WeatherService {
             result = response.body();
         } catch (IOException e) {
             //todo: add logging
-            int d = 0;
         }
         return result;
     }
+
+    public WeatherResponse find(String countryName, String cityName) {
+        WeatherResponse result = null;
+        Call<WeatherResponse> call = weatherClientAPI.getCityWeather(countryName, cityName);
+        try {
+            Response<WeatherResponse> response = call.execute();
+            result = response.body();
+        } catch (IOException e) {
+            //todo: add logging
+        }
+        return result;
+    }
+
 }
